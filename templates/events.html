@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="/static/bootstrap.css">
+    <style>
+        .x{
+            display: flex;
+            padding-left: 20px;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .xy{
+            display: flex;
+            justify-content: center;
+        }
+       .main{
+           margin-bottom: 10vh;
+       }
+       .navb{
+           display: flex;
+           justify-content: center;
+           clear: both;
+           margin-bottom: 5vh;
+       }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top navb">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Go To Home</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/register">Add User</a></li>
+                <li class="active"><a href="/show">Show Events</a></li>
+                <li><a href="/">Add Event</a></li>
+                <li><p><b>{{ session['names'] }}</b></p></li>
+            </ul>
+
+
+        </div>
+    </nav>
+    <div class="col-sm-8 col-sm-offset-2">
+     {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+     {% endwith %}
+
+    <table class="table table-striped table-bordered">
+
+
+        {% for user in users %}
+
+            <div class="row main">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6 data">
+                    <img class="post" src="../static/imgconcert.jpg" alt="">
+                </div>
+                <div class="col-md-3">
+
+                </div>
+
+                <div class="col-md-4 xy">
+                </div>
+                <div class="col-md-4 x">
+                    <p><b>Name:</b> {{ user.names }}</p>
+                    <p><b>Place:</b> {{ user.place }}</p>
+                    <p><b>Date:</b> {{ user.date }}</p>
+                    <p><b>Time:</b> {{ user.time }}</p>
+                    <p><b>Cost:</b> {{ user.cost }}</p>
+                    <p><b>Content:</b> {{ user.content }}</p>
+                   <a href="#" class="btn btn-success btn-block">Book</a>
+            <a href="delete/{{ user.id }}" class="btn btn-danger">Delete</a>
+            <a href="update/{{ user.id }}" class="btn btn-primary">Update</a>
+                </div>
+            <div class="col-md-4">
+
+            </div>
+            </div>
+
+
+        {% endfor %}
+
+
+    </table>
+    </div>
+</body>
+</html>
+
+
+
+
+

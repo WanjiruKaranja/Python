@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Events</title>
+    <link rel="stylesheet" href="/static/bootstrap.css">
+</head>
+<body>
+     <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Go To Home</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Add Event</a></li>
+                <li><a href="/show">View Events</a></li>
+            </ul>
+        </div>
+    </nav>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+     <div class="col-sm-4 col-md-offset-4">
+        <form action="" method="post">
+            <label>Name:</label>
+            <div class="form-group">
+                <input type="text" class="form-control" required placeholder="Name" name="names">
+            </div>
+
+            <div class="form-group">
+            <label>Place:</label>
+                <input type="text" class="form-control" required placeholder="Place" name="place">
+            </div>
+
+            <div class="form-group">
+            <label>Date:</label>
+                <input type="date" class="form-control" required placeholder="Date" name="date">
+            </div>
+
+            <div class="form-group">
+            <label>Time:</label>
+                <input type="number" class="form-control" required placeholder="Time" name="time">
+            </div>
+
+            <div class="form-group">
+            <label>Cost:</label>
+                <input type="number" class="form-control" required placeholder="Cost" name="cash">
+            </div>
+
+            <div class="form-group">
+            <label>Content:</label>
+                <input type="text" class="form-control" required placeholder="Start typing..." name="content">
+            </div>
+
+             <div class="form-group">
+            <label>Poster:</label>
+                <input type="file" class="form-control" name="img">
+            </div>
+
+
+            <button class="btn btn-block btn-primary" type="submit">Post</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
